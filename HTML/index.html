@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Predict Emotion{% endblock %}
+{% block content %}
+    <div class="predictor-form">
+        <h1>Emotion Classifier</h1>
+        <p>Enter a sentence and the model will predict its emotion.</p>
+        <form action="{{ url_for('predict') }}" method="post">
+            <textarea name="text" placeholder="e.g., I had a wonderful day today!">{{ text or '' }}</textarea>
+            <button type="submit">Analyze Emotion</button>
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if prediction %}
+            <div class="result-container">
+                <div class="result-text">
+                    <h3>Your Text:</h3>
+                    <blockquote>{{ text }}</blockquote>
+                    <h2>Predicted Emotion:
+                        <span class="emotion-{{ prediction|lower }}">{{ prediction }}</span>
+                    </h2>
+                </div>
+                {% if video_file %}
+                <div class="result-video">
+                    <video autoplay loop muted playsinline>
+                        <source src="{{ url_for('static', filename='videos/' + video_file) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+# Ignore the Python virtual environment folder
+venv/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Ignore large data, model, and tokenizer files
+# Best practice is to provide a link to the dataset source in the README.
+text.csv
+emotion_model.keras
+tokenizer.pickle
+
+# Ignore system-specific files
+.DS_Store
+*.pyc
+`
+

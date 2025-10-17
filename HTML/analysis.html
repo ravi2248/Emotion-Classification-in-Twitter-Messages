@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Model Analysis{% endblock %}
+{% block content %}
+    <h1>Final Model Analysis</h1>
+    <p>The best-performing model, the Bidirectional LSTM, was evaluated on the unseen test set to provide a final, unbiased measure of its performance.</p>
+    <h2>Confusion Matrix</h2>
+    <p>The confusion matrix below visualizes the model's predictions on the test set. The diagonal represents correct predictions. This helps us see which emotions the model sometimes confuses, such as 'joy' and 'love'.</p>
+    <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}" alt="Confusion Matrix" class="plot">
+    <h2>Error Analysis Insights</h2>
+    <p>A qualitative review of the model's errors revealed that most mistakes occur between emotions with significant vocabulary overlap. For example, the model often misclassifies text expressing personal happiness ('joy') as 'love' when words like "blessed," "generous," or "passionate" are used. This highlights the complexity of language and suggests that even advanced models can be challenged by nuanced expressions.</p>
+{% endblock %}
