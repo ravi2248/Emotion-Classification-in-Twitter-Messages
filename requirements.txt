@@ -4,6 +4,11 @@ matplotlib
 seaborn
 nltk
 scikit-learn
-tensorflow
+tensorflow-macos
+transformers
+tf-keras
+torch
+tensorflow-metal
 Flask
 gunicorn
+gensim
